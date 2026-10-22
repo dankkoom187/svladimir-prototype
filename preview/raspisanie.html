@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Расписание богослужений — Храм св. Владимира в Новогиреево</title>
+  <link rel="icon" href="../static/img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../static/css/site.css">
+</head>
+<body>
+  <div style="background:#7a3b2e;color:#fff;text-align:center;padding:.5rem 1rem;font:14px/1.4 'Segoe UI',Arial,sans-serif">
+    Статический прототип: формы и оплата не работают.
+    <a href="../index.html" style="color:#fff;text-decoration:underline">На главную демо</a>
+  </div>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand brand--logo" href="index.html" aria-label="Temple home">
+        <img class="brand__logo brand__logo--wide" src="assets/logo.png"
+             alt="Temple logo" width="437" height="88">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="visually-hidden">Открыть меню</span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация" data-nav>
+        <ul class="site-nav__list">
+          <li><a href="raspisanie.html" aria-current="page">Расписание</a></li>
+          <li><a href="#">Таинства</a></li>
+          <li><a href="#">Приход</a></li>
+          <li><a href="#">Помощь</a></li>
+          <li><a href="#">Новости</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="site-nav__actions">
+          <a class="site-nav__phone" href="tel:+79670025261">8 (967) 002-52-61</a>
+          <a class="btn btn--primary btn--sm" href="#">Пожертвовать</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <header class="page-header">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Вы находитесь здесь">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><span aria-current="page">Расписание</span></li>
+          </ol>
+        </nav>
+        <h1>Расписание богослужений</h1>
+        <p class="lead">Октябрь 2026. Время московское. В расписании возможны изменения — следите за объявлениями.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="schedule-toolbar">
+          <nav class="segmented" aria-label="Период расписания">
+            <a class="segmented__item" href="#">Сегодня</a>
+            <a class="segmented__item is-active" href="#" aria-current="page">Неделя</a>
+            <a class="segmented__item" href="#">Месяц</a>
+          </nav>
+
+          <form class="schedule-filter" data-autosubmit>
+            <label for="temple">Храм</label>
+            <select id="temple" name="temple">
+              <option value="">Все храмы</option>
+              <option value="kamenny">Каменный храм</option>
+              <option value="feodor">Храм Феодора Ушакова</option>
+            </select>
+          </form>
+
+          <div class="schedule-toolbar__actions">
+            <a class="btn btn--ghost btn--sm" href="#">Подписаться (.ics)</a>
+            <button class="btn btn--ghost btn--sm" type="button" data-print>Печать</button>
+          </div>
+        </div>
+
+        <div class="schedule">
+          <table class="schedule-table">
+            <caption class="visually-hidden">Расписание богослужений на неделю</caption>
+            <thead class="visually-hidden">
+              <tr><th scope="col">Дата</th><th scope="col">Богослужения</th></tr>
+            </thead>
+            <tbody>
+              <tr class="schedule-day is-today">
+                <th scope="row" class="schedule-day__date">
+                  <span class="schedule-day__num">22</span>
+                  <span class="schedule-day__month">октября</span>
+                  <span class="schedule-day__weekday">четверг</span>
+                  <span class="badge badge--accent">Сегодня</span>
+                </th>
+                <td class="schedule-day__services">
+                  <ul class="services">
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-22T08:00">08:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Исповедь, Часы, Литургия</p>
+                        <p class="service__meta">Каменный храм</p>
+                        <p class="service__meta">Служит: иерей Кирилл</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-22T18:00">18:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Вечерня, Утреня, Исповедь</p>
+                        <p class="service__meta">Каменный храм</p>
+                        <p class="service__meta">Служит: иерей Максим</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr class="schedule-day">
+                <th scope="row" class="schedule-day__date">
+                  <span class="schedule-day__num">23</span>
+                  <span class="schedule-day__month">октября</span>
+                  <span class="schedule-day__weekday">пятница</span>
+                </th>
+                <td class="schedule-day__services">
+                  <ul class="services">
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-23T08:00">08:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Исповедь, Часы, Литургия</p>
+                        <p class="service__meta">Каменный храм</p>
+                        <p class="service__rank">Свт. Тихона, Патриарха Московского</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-23T18:00">18:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Вечерня, Утреня, Исповедь</p>
+                        <p class="service__note">Акафист святителю Спиридону Тримифунтскому</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr class="schedule-day">
+                <th scope="row" class="schedule-day__date">
+                  <span class="schedule-day__num">24</span>
+                  <span class="schedule-day__month">октября</span>
+                  <span class="schedule-day__weekday">суббота</span>
+                </th>
+                <td class="schedule-day__services">
+                  <ul class="services">
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-24T08:00">08:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Исповедь, Часы, Литургия</p>
+                        <p class="service__meta">Служит: иерей Кирилл · Исповедует: прот. Алексей</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-24T17:20">17:20</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Молебен с водосвятием</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-24T18:00">18:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Всенощное бдение, Исповедь</p>
+                        <p class="service__note">Неделя 19-я по Пятидесятнице</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr class="schedule-day">
+                <th scope="row" class="schedule-day__date">
+                  <span class="schedule-day__num">25</span>
+                  <span class="schedule-day__month">октября</span>
+                  <span class="schedule-day__weekday">воскресенье</span>
+                </th>
+                <td class="schedule-day__services">
+                  <ul class="services">
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-25T06:45">06:45</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Исповедь, Часы, Литургия</p>
+                        <p class="service__meta">Служит: иерей Максим · Исповедует: иерей Кирилл</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-25T08:30">08:30</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Заупокойная лития</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-25T09:20">09:20</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Литургия</p>
+                        <p class="service__note">Покров Пресвятой Богородицы</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr class="schedule-day">
+                <th scope="row" class="schedule-day__date">
+                  <span class="schedule-day__num">26</span>
+                  <span class="schedule-day__month">октября</span>
+                  <span class="schedule-day__weekday">понедельник</span>
+                </th>
+                <td class="schedule-day__services">
+                  <ul class="services">
+                    <li class="service">
+                      <div class="service__time"><time datetime="2026-10-26T08:00">08:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Исповедь, Часы, Литургия</p>
+                        <p class="service__meta">Служит: иерей Кирилл</p>
+                      </div>
+                      <a class="service__cal" href="#">В календарь</a>
+                    </li>
+                    <li class="service is-cancelled">
+                      <div class="service__time"><time datetime="2026-10-26T18:00">18:00</time></div>
+                      <div class="service__body">
+                        <p class="service__title">Вечернее богослужение</p>
+                        <p class="service__note">Отменено</p>
+                      </div>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="schedule-note">
+          <p>Таинство исповеди совершается также по договорённости с конкретным священником. Телефон храма: <a href="tel:+79670025261">8 (967) 002-52-61</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__col">
+        <p class="site-footer__title">Храм св. Владимира в Новогиреево</p>
+        <address class="site-footer__address">Москва, ул. Перовская, 64</address>
+        <p><a href="tel:+79670025261">8 (967) 002-52-61</a></p>
+        <p><a href="mailto:hram@svladimir.ru">hram@svladimir.ru</a></p>
+      </div>
+      <nav class="site-footer__col" aria-label="Разделы сайта">
+        <p class="site-footer__heading">Разделы</p>
+        <ul class="site-footer__list">
+          <li><a href="raspisanie.html">Расписание</a></li>
+          <li><a href="#">Таинства</a></li>
+          <li><a href="#">Приход</a></li>
+          <li><a href="#">Помощь</a></li>
+        </ul>
+      </nav>
+      <div class="site-footer__col">
+        <p class="site-footer__heading">Приход</p>
+        <ul class="site-footer__list">
+          <li><a href="#">ВКонтакте</a></li>
+          <li><a href="#">Новости в MAX</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__heading">Официальные сайты</p>
+        <ul class="site-footer__list">
+          <li><a href="#">Русская Православная Церковь</a></li>
+          <li><a href="#">Московская епархия</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>© 2006–2026 Приход храма св. Владимира в Новогиреево</p>
+      <p><a href="#">Политика конфиденциальности</a> · <a href="#">Контакты</a></p>
+    </div>
+  </footer>
+
+  <script src="../static/js/site.js" defer></script>
+</body>
+</html>

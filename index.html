@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прототип сайта храма св. Владимира в Новогиреево</title>
+  <meta name="description" content="Статический прототип нового сайта храма: главная, расписание, таинства, записки, пожертвования, админка.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="static/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png">
+  <style>
+    :root {
+      --paper: #faf7f2;
+      --surface: #fff;
+      --ink: #1f1d1a;
+      --muted: #6b645b;
+      --line: #e3d9cb;
+      --accent: #7a3b2e;
+      --accent-dark: #5f2c22;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { width: min(100% - 2rem, 1160px); margin: 0 auto; }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .top img { height: 44px; width: auto; }
+    .top a { color: var(--muted); font-size: .9rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+      padding: clamp(2.5rem, 6vw, 5rem) 0;
+    }
+    .eyebrow { margin: 0 0 .75rem; color: var(--accent); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
+    h1 {
+      margin: 0 0 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 1.08;
+    }
+    .lead { max-width: 55ch; margin: 0 0 1.5rem; color: var(--muted); font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: .75rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      text-decoration: none;
+      transition: .18s ease;
+    }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: var(--accent-dark); }
+    .btn--ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+    .btn--ghost:hover { background: #f2ece3; }
+    .hero-shot {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 18px 50px rgba(31, 29, 26, .12);
+    }
+    .hero-shot img { display: block; width: 100%; height: auto; }
+    .note {
+      margin-top: 1.5rem;
+      padding: .85rem 1rem;
+      background: #f2ece3;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    section { padding: clamp(2rem, 5vw, 3.5rem) 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 .5rem; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .section-lead { max-width: 65ch; margin: 0 0 1.5rem; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .card a { display: block; }
+    .card img { display: block; width: 100%; height: 220px; object-fit: cover; object-position: top; }
+    .card div { padding: .8rem 1rem 1rem; }
+    .card h3 { margin: 0 0 .2rem; font-size: 1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .85rem; }
+    ul.checks { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .5rem 2rem; }
+    ul.checks li { padding: .35rem 0 .35rem 1.6rem; position: relative; border-bottom: 1px solid var(--line); }
+    ul.checks li::before { content: "✓"; position: absolute; left: 0; color: #2f6b4f; font-weight: 700; }
+    footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .85rem; }
+    code { background: #f2ece3; padding: .1rem .35rem; border-radius: 4px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .top img { height: 38px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="static/img/logo.png" alt="Храм св. Владимира в Новогиреево">
+    <a href="svladimir-demo.pdf">Скачать PDF</a>
+  </div>
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Прототип · 2026</p>
+      <h1>Новый сайт храма<br>св. Владимира</h1>
+      <p class="lead">Рабочая версия: расписание без сканов, таинства с ответами на вопросы, записки, пожертвования, новости и простая админка для прихода.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="preview/index.html">Открыть прототип</a>
+        <a class="btn btn--ghost" href="preview/raspisanie.html">Расписание</a>
+        <a class="btn btn--ghost" href="svladimir-demo.pdf">PDF для показа</a>
+      </div>
+      <p class="note">Это статическая демонстрация. Формы, оплата и админка работают только в полной версии на Django/Wagtail.</p>
+    </div>
+    <a class="hero-shot" href="screens/01-home-desktop.png" target="_blank">
+      <img src="screens/01-home-desktop.png" alt="Главная страница прототипа">
+    </a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Что посмотреть</h2>
+    <p class="section-lead">Кликабельные страницы — это статичная копия. Ниже — экраны из работающей версии.</p>
+    <div class="grid">
+      <article class="card">
+        <a href="preview/index.html"><img src="screens/01-home-desktop.png" alt="Главная"></a>
+        <div><h3>Главная</h3><p>«Сегодня в храме», расписание, быстрые действия</p></div>
+      </article>
+      <article class="card">
+        <a href="preview/raspisanie.html"><img src="screens/02-schedule-desktop.png" alt="Расписание"></a>
+        <div><h3>Расписание</h3><p>День / неделя / месяц, фильтр, .ics, печать</p></div>
+      </article>
+      <article class="card">
+        <a href="screens/03-sacrament-desktop.png" target="_blank"><img src="screens/03-sacrament-desktop.png" alt="Крещение"></a>
+        <div><h3>Таинства</h3><p>Крещение: что взять, как проходит, FAQ</p></div>
+      </article>
+      <article class="card">
+        <a href="screens/04-notes-desktop.png" target="_blank"><img src="screens/04-notes-desktop.png" alt="Записки"></a>
+        <div><h3>Записки</h3><p>Форма с согласием и защитой от спама</p></div>
+      </article>
+      <article class="card">
+        <a href="screens/05-donate-desktop.png" target="_blank"><img src="screens/05-donate-desktop.png" alt="Пожертвования"></a>
+        <div><h3>Пожертвования</h3><p>Пресеты, цель, СБП, реквизиты</p></div>
+      </article>
+      <article class="card">
+        <a href="screens/12-admin-home.png" target="_blank"><img src="screens/12-admin-home.png" alt="Админка"></a>
+        <div><h3>Админка</h3><p>Расписание, записки, платежи, страницы</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Что уже работает в полной версии</h2>
+    <ul class="checks">
+      <li>Расписание из данных, а не из картинок</li>
+      <li>Подписка на календарь .ics и печать A4</li>
+      <li>Записки с согласием, капчей и письмом</li>
+      <li>Пожертвования через ЮKassa и СБП</li>
+      <li>Этапы строительства с прогрессом</li>
+      <li>Новости и события</li>
+      <li>Роли редактора и бухгалтера</li>
+      <li>Админка Wagtail без разработчика</li>
+      <li>Импорт расписания из Excel/CSV</li>
+      <li>Бэкапы БД и медиа</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Демонстрационный стенд. Не является официальным сайтом храма. Полная версия — Django + Wagtail.</p>
+  </div>
+</footer>
+</body>
+</html>
